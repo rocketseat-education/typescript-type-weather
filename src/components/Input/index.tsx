@@ -1,7 +1,8 @@
 import './styles.css';
 import { Spin } from '../Spin';
+import { InputHTMLAttributes } from 'react';
 
-interface Props {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   isLoading?: boolean;
 }
 
