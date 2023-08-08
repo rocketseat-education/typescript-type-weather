@@ -9,6 +9,7 @@ import { WeatherResponseProps } from '../../services/getWeatherByCity';
 interface Props {
   city: string;
   weather: WeatherResponseProps;
+  onSearchValue: () => void;
 }
 
 export function Today({ city, weather, onSearchValue }: Props) {
