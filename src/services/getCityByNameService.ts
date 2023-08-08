@@ -1,5 +1,4 @@
 import { api } from "./api";
-
 export interface CityProps {
   id: string;
   name: string;
@@ -7,9 +6,21 @@ export interface CityProps {
   longitude: number;
 }
 
+export interface CityAPIResponse {
+  id: string;
+  name: string;
+  sys: {
+    country?: string;
+  }
+  coord: {
+    lat: number;
+    lon: number;
+  }
+}
+
 export async function getCityByNameService(name: string): Promise<CityProps[]> {
   try {
-    const { data } = await api.get(`/weather?q=${name}`);
+    const { data } = await api.get<CityAPIResponse>(`/weather?q=${name}`);
 
     const city = {
       id: data.id,
